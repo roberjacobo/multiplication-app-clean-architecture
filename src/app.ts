@@ -1,25 +1,9 @@
-import fs from 'fs';
+import { yarg } from "./config/plugins/args.plugin";
 
+(async ()=>{
+    await main();
+})();
 
-let outputMessage: string = '';
-const base: number = 9;
-const headerMessage: string= `
-======================================
-          Tabla del ${base}
-======================================\n
-`;
-
-for (let i = 0; i <= 10; i++) {
-    outputMessage += `${base} * ${i} = ${base*i}\n`
+async function main() {
+    console.log(yarg);
 }
-
-outputMessage = headerMessage + outputMessage;
-console.log(outputMessage);
-
-const outputPath = `outputs`
-
-fs.mkdirSync(outputPath, { recursive: true })
-
-fs.writeFileSync(`${outputPath}/tabla-${base}.txt`, outputMessage);
-
-console.log('File created!');
