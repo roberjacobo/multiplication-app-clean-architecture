@@ -10,16 +10,16 @@ const headerMessage = `
 `;
 
 for( let i = 1; i <= limit; i++ ) {
-  outputMessage += `${ base } x ${ i } = ${ base * i }\n`;
+	outputMessage += `${ base } x ${ i } = ${ base * i }\n`;
 }
 
 outputMessage = headerMessage + outputMessage;
 
 if ( showTable ) {
-  console.log(outputMessage);
+	console.log(outputMessage);
 }
 
-const outputPath = `outputs`;
+const outputPath = 'outputs';
 
 fs.mkdirSync(outputPath, { recursive: true });
 fs.writeFileSync(`${ outputPath }/tabla-${ base }.txt`, outputMessage);
